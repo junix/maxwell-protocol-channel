@@ -1,0 +1,14 @@
+%% -*- mode: erlang -*-
+
+{application, maxwell_protocol_channel,
+  [
+    {description, "channle protocol for maxwell and terminal."},
+    {vsn, "1"},
+    {registered, []},
+    {applications, [
+      kernel,
+      stdlib
+    ]},
+    {env, []}
+  ]
+}.
