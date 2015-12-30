@@ -18,13 +18,17 @@
 pack(Record) ->
   maxwell_protocol_channel_pb:encode(Record).
 
-build_command_to_event_agent(Type, {UserId, AgentKey}, PayLoad) ->
+
+atom_to_enum(call) -> 'CALL';
+atom_to_enum(cast) -> 'CAST'.
+
+build_command_to_event_agent(Type, UserId, AgentKey, PayLoad) ->
   AgentAddr = maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey}),
   maxwell_protocol_channel_pb:encode({chan_command_t,atom_to_enum(Type),'PEER_TYPE_EVENT_AGENT', AgentAddr, PayLoad, undefined, undefined}).
 
-build_command_to_frontend_agent(Type, {UserId, AgentKey}, PayLoad) ->
+build_command_to_frontend_agent(UserId, AgentKey, PayLoad) ->
   AgentAddr = maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey}),
-  maxwell_protocol_channel_pb:encode({chan_command_t, atom_to_enum(Type), 'PEER_TYPE_FRONTEND_AGENT', AgentAddr, PayLoad, undefined, undefined}).
+  maxwell_protocol_channel_pb:encode({chan_command_t, 'PEER_TYPE_FRONTEND_AGENT', AgentAddr, PayLoad, undefined, undefined}).
 
 unpack(Bin) ->
   maxwell_protocol_channel_pb:decode(chan_command_t, Bin).
@@ -49,19 +53,16 @@ encode_addr('PEER_TYPE_EVENT_AGENT', {UserId, AgentKey}) ->
 encode_addr('PEER_TYPE_FRONTEND_AGENT', {UserId, AgentKey}) ->
   maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey}).
 
-atom_to_enum(call) -> 'CALL';
-atom_to_enum(cast) -> 'CAST'.
-
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
 
 x01_test() ->
-  Bin = iolist_to_binary(build_command_to_event_agent(call, {1, <<"agentkey">>}, <<"content">>)),
-  Ex = {chan_command_t, 'CALL','PEER_TYPE_EVENT_AGENT', iolist_to_binary(encode_addr('PEER_TYPE_EVENT_AGENT', {1, <<"agentkey">>})), <<"content">>, undefined, undefined},
+  Bin = iolist_to_binary(build_command_to_event_agent(1, <<"agentkey">>, <<"content">>)),
+  Ex = {chan_command_t, undefined,'PEER_TYPE_EVENT_AGENT', iolist_to_binary(encode_addr('PEER_TYPE_EVENT_AGENT', {1, <<"agentkey">>})), <<"content">>, undefined, undefined},
   ?assertEqual(unpack(Bin), Ex).
 
 x02_test() ->
-  Bin = iolist_to_binary(build_command_to_event_agent(cast, {1, <<"agentkey">>}, <<"content">>)),
+  Bin = iolist_to_binary(build_command_to_event_agent(1, <<"agentkey">>, <<"content">>)),
   Cmd = unpack(Bin),
   {ok, D} = decode_dest(Cmd),
   ?assertEqual(D, {chan_agent_id_t, 1, <<"agentkey">>}).

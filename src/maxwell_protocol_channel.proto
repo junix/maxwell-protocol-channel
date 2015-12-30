@@ -1,25 +1,31 @@
 package maxwell.protocol.channel;
 
+enum command_type_t {
+    CAST                                 = 1;
+    CALL                                 = 2;
+}
+
 enum chan_peer_type_t {
-    PEER_TYPE_EVENT_AGENT = 1;
-    PEER_TYPE_FRONTENT_AGENT = 2;
+    PEER_TYPE_EVENT_AGENT                = 1;
+    PEER_TYPE_FRONTENT_AGENT             = 2;
 }
 
 message chan_agent_id_t {
-    required uint64 user_id = 1;
-    required bytes agent_key = 2;
+    required uint64 user_id              = 1;
+    required bytes agent_key             = 2;
 
 }
 
 message chan_session_id_t {
-    required uint64 user_id = 1;
-    required bytes session_key = 2;
+    required uint64 user_id              = 1;
+    required bytes session_key           = 2;
 }
 
 message chan_command_t {
-    required chan_peer_type_t dest_type = 1;
-    required bytes dest_id = 2;
-    required bytes payload = 3;
-    optional chan_peer_type_t src_type = 4;
-    optional bytes src_id = 5;
+    optional command_type_t command_type = 1;
+    required chan_peer_type_t dest_type  = 2;
+    required bytes dest_id               = 3;
+    required bytes payload               = 4;
+    optional chan_peer_type_t src_type   = 5;
+    optional bytes src_id                = 6;
 }

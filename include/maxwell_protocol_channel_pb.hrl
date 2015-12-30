@@ -17,6 +17,7 @@
 -ifndef(CHAN_COMMAND_T_PB_H).
 -define(CHAN_COMMAND_T_PB_H, true).
 -record(chan_command_t, {
+    command_type,
     dest_type = erlang:error({required, dest_type}),
     dest_id = erlang:error({required, dest_id}),
     payload = erlang:error({required, payload}),
