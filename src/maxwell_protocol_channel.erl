@@ -26,7 +26,7 @@ build_command_to_frontend_agent(Type, {UserId, AgentKey}, PayLoad) ->
   AgentAddr = maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey}),
   maxwell_protocol_channel_pb:encode({chan_command_t, atom_to_enum(Type), 'PEER_TYPE_FRONTEND_AGENT', AgentAddr, PayLoad, undefined, undefined}).
 
-unpack(Bin) ->
+unpack(Bin) when is_binary(Bin) ->
   maxwell_protocol_channel_pb:decode(chan_command_t, Bin).
 
 decode_dest(#chan_command_t{dest_type = DestType, dest_id = DestAddr}) ->
