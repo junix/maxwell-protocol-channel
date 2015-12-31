@@ -23,5 +23,8 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
-    {ok, { {one_for_one, 5, 10}, []} }.
+    PoolsSpec = ?CHILD(maxwell_protocol_channel_client_pools,supervisor),
+    ClientPoolManager = ?CHILD(maxwell_protocol_channel_client_pool_manager,worker),
+    ManagerSpec = ?CHILD(maxwell_protocol_channel_handler_manager, worker),
+    {ok, {{one_for_one, 5, 10}, [ManagerSpec,ClientPoolManager,PoolsSpec]}}.
 

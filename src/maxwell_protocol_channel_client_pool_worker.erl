@@ -116,8 +116,13 @@ do_call(Command, State = #state{conn = undefined}, RetryCount) ->
 do_call(Command, State = #state{conn = Conn}, RetryCount) ->
   ok = inet:setopts(Conn, [{active, false}]),
   case do_one_call(Command, Conn, RetryCount * ?CALL_TIMEOUT_STEP, RetryCount, State) of
-    {{ok, _Rep}, _NewState} = OkState ->
-      OkState;
+    {{ok, Rep}, NewState} ->
+      case maxwell_protocol_channel_pb:decode(chan_msg_t,Rep) of
+        {chan_msg_t,'REPLY',0,Bin} ->
+          {{ok, Bin}, NewState};
+        {chan_msg_t,'REPLY',1,Reason} ->
+          {{error, binary_to_term(Reason)}, NewState}
+      end;
     {{error, _}, _NewState} = ErrorState ->
       ErrorState;
     {{retry, NewRetryCount}, NewState} ->

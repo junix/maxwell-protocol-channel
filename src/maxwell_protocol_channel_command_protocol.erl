@@ -1,12 +1,12 @@
 -module(maxwell_protocol_channel_command_protocol).%{{{
 -behaviour(gen_server).
-%%-behaviour(ranch_protocol).
+-behaviour(ranch_protocol).
 
 -include_lib("maxwell_protocol_channel_pb.hrl").
 
 %% API.
--export([start_link/5]).
--export([init/5]).
+-export([start_link/4]).
+-export([init/4]).
 
 %% gen_server callbacks
 -export([init/1,
@@ -28,19 +28,12 @@
   last_updated_time
 }).%}}}
 
--callback start_link(Ref::ranch:ref(),
-    Socket::any(),
-    Transport::module(),
-    ProtocolOptions::any()) -> {ok, ConnectionPid::pid()}.
--callback proc_command(Command::any()) ->
-  noreply | {reply,Reply::binary()} | {error, Reason::atom()}.
-
 
 %%--------------------------------------------------------------------
 %%    API.
 %%--------------------------------------------------------------------
-start_link(Ref, Socket, Transport, Opts, Mod) ->
-  proc_lib:start_link(?MODULE, init, [Ref, Socket, Transport, Opts, Mod]).
+start_link(Ref, Socket, Transport, Opts) ->
+  proc_lib:start_link(?MODULE, init, [Ref, Socket, Transport, Opts]).
 
 %%--------------------------------------------------------------------
 %% gen_fsm.
@@ -50,7 +43,7 @@ start_link(Ref, Socket, Transport, Opts, Mod) ->
 %% we can use the -behaviour(gen_server) attribute.
 init([]) -> {ok, undefined}.
 
-init(Ref, Socket, Transport, Opts, Mod) ->
+init(Ref, Socket, Transport, _Opts) ->
   ok = proc_lib:init_ack({ok, self()}),
   ok = ranch:accept_ack(Ref),
   ok = Transport:setopts(Socket, [{active, once}]),
@@ -58,7 +51,6 @@ init(Ref, Socket, Transport, Opts, Mod) ->
   State = #state{
     socket = Socket,
     transport = Transport,
-    mod = Mod,
     peer_ip = maxwell_protocol_channel_lib:peer_chan_name(PeerIP),
     last_updated_time = cloud_common_lib:current()},
   gen_server:enter_loop(?MODULE, [], State, ?TIMEOUT).
@@ -80,15 +72,20 @@ handle_info({tcp_error, _, Reason}, State) ->
   {stop, Reason, State};
 handle_info({tcp, Socket, Data}, State = #state{
   socket = Socket,
-  mod = Mod,
   transport = Transport}) ->
   Transport:setopts(Socket, [{active, once}]),
-  case Mod:proc_command(Data) of
+  case proc_msg(Data) of
     noreply ->
       {noreply, State, ?TIMEOUT};
-    {reply, BinRep} when is_binary(BinRep) ->
-      Len = byte_size(BinRep),
-      ok = Transport:send(Socket, [?RESPONSE, <<Len:32>> | BinRep]),
+    {reply, {ok,BinRep}} when is_binary(BinRep) ->
+      OkReply = maxwell_protocol_channel_pb:encode({chan_msg_t,'REPLY',0,BinRep}),
+      Len = byte_size(OkReply),
+      ok = Transport:send(Socket, [?RESPONSE, <<Len:32>> | OkReply]),
+      {noreply, State, ?TIMEOUT};
+    {reply, {error,Reason}} ->
+      ErrReply = maxwell_protocol_channel_pb:encode({chan_msg_t,'REPLY',1,term_to_binary(Reason)}),
+      Len = iolist_size(ErrReply),
+      ok = Transport:send(Socket, [?RESPONSE, <<Len:32>> | ErrReply]),
       {noreply, State, ?TIMEOUT};
     {error, Reason} ->
       {stop, Reason, State}
@@ -110,3 +107,33 @@ terminate(Reason, _State) ->
 
 code_change(_OldVsn, State, _Extra) ->
   {ok, State}.
+
+proc_msg(Data) when is_binary(Data) ->
+  proc_msg(maxwell_protocol_channel_pb:decode(chan_msg_t, Data));
+proc_msg(#chan_msg_t{rpc_type = 'CAST',msg_type = Type, payload = PayLoad}) ->
+  case maxwell_protocol_channel_handler_manager:find_handler(Type) of
+    {ok,Handler} ->
+      case catch(Handler(Type,PayLoad)) of
+        {'EXIT',Reason} ->
+          lager:error("Fail to proc ~p:~p,reason:~p",[Type,PayLoad,Reason]);
+        _ ->
+          ok
+      end;
+    {error,Reason} ->
+      lager:error("Fail to proc ~p:~p,reason:~p",[Type,PayLoad,Reason])
+  end,
+  noreply;
+proc_msg(#chan_msg_t{rpc_type = 'CALL',msg_type = Type, payload = PayLoad}) ->
+  Reply = case maxwell_protocol_channel_handler_manager:find_handler(Type) of
+    {ok,Handler} ->
+      case catch(Handler(Type,PayLoad)) of
+        {'EXIT',Reason} ->
+          {error,Reason};
+        Res when is_binary(Res) ->
+          {ok,Res}
+      end;
+    {error,_Reason} = E ->
+      E
+  end,
+  {reply,Reply}.
+

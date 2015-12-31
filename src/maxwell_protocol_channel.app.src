@@ -9,6 +9,7 @@
       kernel,
       stdlib
     ]},
+    {mod, {maxwell_protocol_channel_app, []}},
     {env, []}
   ]
 }.

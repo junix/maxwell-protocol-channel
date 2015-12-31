@@ -3,85 +3,45 @@
 
 %% APIs
 -export([
-  start_server/2,
-  start_client_pools/0,
+  start_server/1,
+  connect/2,
+  install_command_handler/2,
+  delete_command_handler/1,
   call/2,
-  cast/2,
-  pack/1,
-  unpack/1,
-  build_command_to_event_agent/3,
-  build_command_to_frontend_agent/3,
-  decode_dest/1,
-  decode_src/1,
-  decode_addr/2
+  cast/2
 ]).
 
 %% =========================================================
 %% API implementations
 %% =========================================================
 
-start_server(Port, CommandProcesser) ->
-   ranch:start_listener(command_channel, 10, ranch_tcp, [{port, Port}], CommandProcesser, []).
+start_server(Port) ->
+  ranch:start_listener(command_channel, 10, ranch_tcp,
+    [{port, Port}],
+    maxwell_protocol_channel_command_protocol, []).
 
-start_client_pools() ->
-   maxwell_protocol_channel_client_pool:start().
+connect(ChanName,Port) ->
+  maxwell_protocol_channel_client_pool_manager:start_pool(ChanName,Port).
 
-call(ChanName,Command) ->
-  maxwell_protocol_channel_client_pools:call(ChanName,Command).
+install_command_handler(Type, Handler) when is_integer(Type) ->
+  maxwell_protocol_channel_handler_manager:install_handler(Type, Handler).
 
-cast(ChanName,Command) ->
-  maxwell_protocol_channel_client_pools:cast(ChanName,Command).
+delete_command_handler(Type) when is_integer(Type) ->
+  maxwell_protocol_channel_handler_manager:delete_handler(Type).
 
-pack(Record) ->
-  maxwell_protocol_channel_pb:encode(Record).
+call(ChanName, {Type, Command}) ->
+  ChanMessage = {chan_msg_t, 'CALL', Type, Command},
+  BinMessage = maxwell_protocol_channel_pb:encode(ChanMessage),
+  maxwell_protocol_channel_client_pools:call(ChanName, BinMessage).
 
-build_command_to_event_agent(Type, {UserId, AgentKey}, PayLoad) ->
-  AgentAddr = maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey}),
-  maxwell_protocol_channel_pb:encode({chan_command_t,atom_to_enum(Type),'PEER_TYPE_EVENT_AGENT', AgentAddr, PayLoad, undefined, undefined}).
-
-build_command_to_frontend_agent(Type, {UserId, AgentKey}, PayLoad) ->
-  AgentAddr = maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey}),
-  maxwell_protocol_channel_pb:encode({chan_command_t, atom_to_enum(Type), 'PEER_TYPE_FRONTEND_AGENT', AgentAddr, PayLoad, undefined, undefined}).
-
-unpack(Bin) when is_binary(Bin) ->
-  maxwell_protocol_channel_pb:decode(chan_command_t, Bin).
-
-decode_dest(#chan_command_t{dest_type = DestType, dest_id = DestAddr}) ->
-  decode_addr(DestType, DestAddr).
-
-decode_src(#chan_command_t{src_type = undefined, src_id = undefined}) ->
-  {error, undefined};
-decode_src(#chan_command_t{src_type = SrcType, src_id = SrcAddr}) ->
-  decode_addr(SrcType, SrcAddr).
-
-decode_addr('PEER_TYPE_EVENT_AGENT', DestAddr) ->
-  {ok, maxwell_protocol_channel_pb:decode(chan_agent_id_t, DestAddr)};
-decode_addr('PEER_TYPE_FRONTEND_AGENT', DestAddr) ->
-  {ok, maxwell_protocol_channel_pb:decode(chan_agent_id_t, DestAddr)};
-decode_addr(_Type, _DestAddr) ->
-  {error, unknown_type}.
-
-encode_addr('PEER_TYPE_EVENT_AGENT', {UserId, AgentKey}) ->
-  maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey});
-encode_addr('PEER_TYPE_FRONTEND_AGENT', {UserId, AgentKey}) ->
-  maxwell_protocol_channel_pb:encode({chan_agent_id_t, UserId, AgentKey}).
-
-atom_to_enum(call) -> 'CALL';
-atom_to_enum(cast) -> 'CAST'.
+cast(ChanName, {Type, Command}) ->
+  ChanMessage = {chan_msg_t, 'CALL', Type, Command},
+  BinMessage = maxwell_protocol_channel_pb:encode(ChanMessage),
+  maxwell_protocol_channel_client_pools:cast(ChanName, BinMessage).
 
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
 
-x01_test() ->
-  Bin = iolist_to_binary(build_command_to_event_agent(call, {1, <<"agentkey">>}, <<"content">>)),
-  Ex = {chan_command_t, 'CALL','PEER_TYPE_EVENT_AGENT', iolist_to_binary(encode_addr('PEER_TYPE_EVENT_AGENT', {1, <<"agentkey">>})), <<"content">>, undefined, undefined},
-  ?assertEqual(unpack(Bin), Ex).
-
-x02_test() ->
-  Bin = iolist_to_binary(build_command_to_event_agent(cast, {1, <<"agentkey">>}, <<"content">>)),
-  Cmd = unpack(Bin),
-  {ok, D} = decode_dest(Cmd),
-  ?assertEqual(D, {chan_agent_id_t, 1, <<"agentkey">>}).
 
 -endif.
 
