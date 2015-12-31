@@ -35,7 +35,7 @@ call(ChanName, {Type, Command}) ->
   maxwell_protocol_channel_client_pools:call(ChanName, BinMessage).
 
 cast(ChanName, {Type, Command}) ->
-  ChanMessage = {chan_msg_t, 'CALL', Type, Command},
+  ChanMessage = {chan_msg_t, 'CAST', Type, Command},
   BinMessage = maxwell_protocol_channel_pb:encode(ChanMessage),
   maxwell_protocol_channel_client_pools:cast(ChanName, BinMessage).
 

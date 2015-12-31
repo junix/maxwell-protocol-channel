@@ -79,7 +79,7 @@ handle_info({tcp, Socket, Data}, State = #state{
       {noreply, State, ?TIMEOUT};
     {reply, {ok,BinRep}} when is_binary(BinRep) ->
       OkReply = maxwell_protocol_channel_pb:encode({chan_msg_t,'REPLY',0,BinRep}),
-      Len = byte_size(OkReply),
+      Len = iolist_size(OkReply),
       ok = Transport:send(Socket, [?RESPONSE, <<Len:32>> | OkReply]),
       {noreply, State, ?TIMEOUT};
     {reply, {error,Reason}} ->
@@ -98,7 +98,6 @@ handle_info(timeout,
   ok = Transport:send(Socket, ?HEARTBEAT),
   {noreply, State, ?TIMEOUT};
 handle_info(Info, State) ->
-  lager:info("recv ~p", [Info]),
   {noreply, State, ?TIMEOUT}.
 
 terminate(Reason, _State) ->
