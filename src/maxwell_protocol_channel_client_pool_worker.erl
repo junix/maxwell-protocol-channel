@@ -13,7 +13,7 @@
   terminate/2,
   code_change/3]).
 
--define(SCHED_TIMEOUT, 1000 * 30).
+-define(SCHED_TIMEOUT, 1000 * 60 * 20).
 -define(CALL_TIMEOUT_STEP, 1000 * 5).
 -define(HEARTBEAT, 1:8).
 -define(RESPONSE, 2:8).
@@ -150,7 +150,6 @@ recv_util_rep(_Conn, _Timeout, RetryCount) when RetryCount > 3 ->
 recv_util_rep(Conn, Timeout, RetryCount) ->
   case gen_tcp:recv(Conn, 0, Timeout) of
     {ok, Bin} ->
-      lager:info("xxxxxxxxxxxxxxxxxxxxxxx~p", [Bin]),
       case parse_response(Bin, Conn, RetryCount) of
         {ok, Rep} ->
           ok = inet:setopts(Conn, [{active, true}]),
@@ -195,7 +194,7 @@ read_len(_Socket, _Left, RetryCount, _Sofar) when RetryCount > 3 ->
 read_len(Socket, Left, RetryCount, Sofar) ->
   case gen_tcp:recv(Socket, Left, ?CALL_TIMEOUT_STEP * RetryCount) of
     {ok, Data} ->
-      read_len(Socket, Left, RetryCount + 1, [Data | Sofar]);
+      read_len(Socket, Left - byte_size(Data), RetryCount + 1, [Data | Sofar]);
     {error, timeout} ->
       read_len(Socket, Left, RetryCount + 1, Sofar);
     {error, _} ->

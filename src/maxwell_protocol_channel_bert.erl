@@ -1,21 +1,20 @@
 -module(maxwell_protocol_channel_bert).
 -export([install/0]).
--export([cast/2]).
--export([do_proc/2]).
 -export([call/2]).
+-export([cast/2]).
 
 install() ->
   maxwell_protocol_channel:install_command_handler(0,
-    fun(Type, MFA) ->
-      maxwell_protocol_channel_bert:do_proc(Type, MFA)
+    fun(Type, MFA, From) ->
+      command_handler(Type, MFA, From)
     end).
 
 cast(ChanName, MFA) ->
-  PayLoad = erlang:term_to_binary(MFA),
+  PayLoad = term_to_binary(MFA),
   maxwell_protocol_channel:cast(ChanName, {0, PayLoad}).
 
 call(ChanName, MFA) ->
-  PayLoad = erlang:term_to_binary(MFA),
+  PayLoad = term_to_binary(MFA),
   case maxwell_protocol_channel:call(ChanName, {0, PayLoad}) of
     {ok, BinRep} ->
       binary_to_term(BinRep);
@@ -23,15 +22,15 @@ call(ChanName, MFA) ->
       Error
   end.
 
-do_proc(call, Payload) when is_binary(Payload) ->
-  {M, F, A} = erlang:binary_to_term(Payload),
-  case catch erlang:apply(M, F, A) of
+command_handler(call, Payload, _From) when is_binary(Payload) ->
+  {M, F, A} = binary_to_term(Payload),
+  case catch apply(M, F, A) of
     Result ->
       term_to_binary(Result)
   end;
-do_proc(cast, Payload) when is_binary(Payload) ->
-  {M, F, A} = erlang:binary_to_term(Payload),
-  erlang:apply(M, F, A).
+command_handler(cast, Payload, _From) when is_binary(Payload) ->
+  {M, F, A} = binary_to_term(Payload),
+  apply(M, F, A).
   
 
 
