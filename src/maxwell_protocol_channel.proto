@@ -13,13 +13,14 @@ enum chan_peer_type_t {
 message chan_agent_id_t {
     required uint64 user_id              = 1;
     required bytes agent_key             = 2;
-
 }
 
 message chan_session_id_t {
     required uint64 user_id              = 1;
     required bytes session_key           = 2;
 }
+
+message chan_heartbeat_t {}
 
 message chan_command_t {
     optional command_type_t command_type = 1;

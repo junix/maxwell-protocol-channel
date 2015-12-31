@@ -15,6 +15,26 @@
 %% =========================================================
 %% API implementations
 %% =========================================================
+
+start_server().
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 pack(Record) ->
   maxwell_protocol_channel_pb:encode(Record).
 

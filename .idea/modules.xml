@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/maxwell-protocol-channels.iml" filepath="$PROJECT_DIR$/maxwell-protocol-channels.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maxwell-protocol-channel.iml" filepath="$PROJECT_DIR$/maxwell-protocol-channel.iml" />
     </modules>
   </component>
 </project>

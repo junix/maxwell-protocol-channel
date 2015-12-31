@@ -14,6 +14,13 @@
 }).
 -endif.
 
+-ifndef(CHAN_HEARTBEAT_T_PB_H).
+-define(CHAN_HEARTBEAT_T_PB_H, true).
+-record(chan_heartbeat_t, {
+    
+}).
+-endif.
+
 -ifndef(CHAN_COMMAND_T_PB_H).
 -define(CHAN_COMMAND_T_PB_H, true).
 -record(chan_command_t, {
