@@ -5214,3 +5214,35 @@
 
 2015-12-31 17:34:58.645 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
 /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 17:48:12.031 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:12: Warning: function call/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:48:20.127 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:12: Warning: function call/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:49:10.435 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 17:51:26.693 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:4: Error: function call/2 undefined
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:17: Error: syntax error before: '.'
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:18: Error: syntax error before: '{'
+2015-12-31 17:56:01.429 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 17:56:12.611 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 17:58:41.092 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:25: Warning: function do_proc/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:58:58.276 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:25: Warning: function do_proc/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:59:02.346 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:25: Warning: function do_proc/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:59:20.552 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:37: Error: syntax error before: 'end'
+2015-12-31 17:59:29.659 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:25: Warning: function do_proc/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:59:30.694 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:25: Warning: function do_proc/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:59:37.785 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:25: Warning: function do_proc/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 17:59:42.862 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:25: Warning: function do_proc/2 is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled with 1 warnings
+2015-12-31 18:00:25.397 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 18:00:33.540 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings

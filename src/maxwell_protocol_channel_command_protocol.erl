@@ -112,7 +112,7 @@ proc_msg(Data) when is_binary(Data) ->
 proc_msg(#chan_msg_t{rpc_type = 'CAST',msg_type = Type, payload = PayLoad}) ->
   case maxwell_protocol_channel_handler_manager:find_handler(Type) of
     {ok,Handler} ->
-      case catch(Handler(Type,PayLoad)) of
+      case catch(Handler(cast,PayLoad)) of
         {'EXIT',Reason} ->
           lager:error("Fail to proc ~p:~p,reason:~p",[Type,PayLoad,Reason]);
         _ ->
@@ -125,7 +125,7 @@ proc_msg(#chan_msg_t{rpc_type = 'CAST',msg_type = Type, payload = PayLoad}) ->
 proc_msg(#chan_msg_t{rpc_type = 'CALL',msg_type = Type, payload = PayLoad}) ->
   Reply = case maxwell_protocol_channel_handler_manager:find_handler(Type) of
     {ok,Handler} ->
-      case catch(Handler(Type,PayLoad)) of
+      case catch(Handler(call,PayLoad)) of
         {'EXIT',Reason} ->
           {error,Reason};
         Res when is_binary(Res) ->

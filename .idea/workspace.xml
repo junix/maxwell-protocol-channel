@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff6574e7-976e-4141-9f79-e8b604c1ae02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/start_channel.erl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/console.log" afterPath="$PROJECT_DIR$/log/console.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/crash.log" afterPath="$PROJECT_DIR$/log/crash.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/error.log" afterPath="$PROJECT_DIR$/log/error.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rebar.config" afterPath="$PROJECT_DIR$/rebar.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="maxwell-protocol-channel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,16 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="maxwell_protocol_channel.erl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel.erl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="maxwell_protocol_channel_app.erl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel_app.erl">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel.proto">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -91,11 +80,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start_channel.erl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="start_channel.erl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/start_channel.erl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43870968">
-              <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maxwell_protocol_channel_bert.erl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel_bert.erl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35096774">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -158,7 +157,6 @@
         <option value="$PROJECT_DIR$/src/maxwell_protocol_channel_client_worker.erl" />
         <option value="$PROJECT_DIR$/src/maxwell_protocol_channel_client_pools.erl" />
         <option value="$PROJECT_DIR$/src/command_protocol.erl" />
-        <option value="$PROJECT_DIR$/src/maxwell_protocol_channel.proto" />
         <option value="$PROJECT_DIR$/src/maxwell_protocol_channel_handler_maneger.erl" />
         <option value="$PROJECT_DIR$/src/maxwell_protocol_channel_handler_manager.erl" />
         <option value="$PROJECT_DIR$/src/maxwell_protocol_channel_sup.erl" />
@@ -168,6 +166,8 @@
         <option value="$PROJECT_DIR$/src/maxwell_protocol_channel.erl" />
         <option value="$PROJECT_DIR$/src/maxwell_protocol_channel_app.erl" />
         <option value="$PROJECT_DIR$/tools/start_channel.erl" />
+        <option value="$PROJECT_DIR$/src/maxwell_protocol_channel.proto" />
+        <option value="$PROJECT_DIR$/src/maxwell_protocol_channel_bert.erl" />
       </list>
     </option>
   </component>
@@ -579,14 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel_app.erl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -629,8 +621,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/start_channel.erl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43870968">
-          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxwell_protocol_channel_bert.erl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35096774">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding />
         </state>
       </provider>
