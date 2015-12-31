@@ -5,10 +5,10 @@
 -export([call/2]).
 
 install() ->
-  maxwell_protocol_channel:install_command_handler(0, 
-   fun(Type,MFA) -> 
-      maxwell_protocol_channel_bert:do_proc(Type,MFA)
-   end).
+  maxwell_protocol_channel:install_command_handler(0,
+    fun(Type, MFA) ->
+      maxwell_protocol_channel_bert:do_proc(Type, MFA)
+    end).
 
 cast(ChanName, MFA) ->
   PayLoad = erlang:term_to_binary(MFA),

@@ -14464,3 +14464,86 @@
 2015-12-31 18:05:26.417 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
 2015-12-31 18:05:27.297 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
 2015-12-31 18:05:28.105 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:05:58.107 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5940>
+2015-12-31 18:05:58.108 [info] <0.822.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.822.0>,reason:normal
+2015-12-31 18:06:04.104 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:05.168 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:05.847 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:06.479 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:07.135 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:07.743 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:08.703 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:09.400 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:09.967 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:10.591 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:11.207 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:11.903 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:12.511 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:19.743 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:20.791 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:21.575 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:22.502 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:23.207 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:24.039 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:24.863 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:recv_util_rep:153 xxxxxxxxxxxxxxxxxxxxxxx<<2,0,0,0,20,8,3,16,0,26,14,131,107,0,10,1,2,3,4,5,6,7,8,9,10>>
+2015-12-31 18:06:54.866 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5942>
+2015-12-31 18:06:54.866 [info] <0.929.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.929.0>,reason:normal
+2015-12-31 18:07:33.168 [info] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel.erl:0: Recompiled.
+2015-12-31 18:07:33.189 [info] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:0: Recompiled.
+2015-12-31 18:07:33.196 [info] <0.125.0> maxwell_protocol_channel: Reloaded! (Beam changed.)
+2015-12-31 18:07:33.197 [info] <0.125.0> maxwell_protocol_channel_bert: Reloaded! (Beam changed.)
+2015-12-31 18:07:54.553 [info] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_client_pool_worker.erl:0: Recompiled.
+2015-12-31 18:07:54.560 [info] <0.125.0> maxwell_protocol_channel_client_pool_worker: Reloaded! (Beam changed.)
+2015-12-31 18:08:08.703 [info] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_client_pool_manager.erl:0: Recompiled.
+2015-12-31 18:08:08.709 [info] <0.125.0> maxwell_protocol_channel_client_pool_manager: Reloaded! (Beam changed.)
+2015-12-31 18:08:36.999 [info] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_handler_manager.erl:0: Recompiled.
+2015-12-31 18:08:37.005 [info] <0.125.0> maxwell_protocol_channel_handler_manager: Reloaded! (Beam changed.)
+2015-12-31 18:09:10.297 [info] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_sup.erl:0: Recompiled.
+2015-12-31 18:09:10.305 [info] <0.125.0> maxwell_protocol_channel_sup: Reloaded! (Beam changed.)
+2015-12-31 18:09:35.780 [info] <0.7.0> Application lager started on node 'chan@127.0.0.1'
+2015-12-31 18:09:35.784 [info] <0.7.0> Application ranch started on node 'chan@127.0.0.1'
+2015-12-31 18:09:35.787 [info] <0.7.0> Application maxwell_protocol_channel started on node 'chan@127.0.0.1'
+2015-12-31 18:09:35.802 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.802 [info] <0.98.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.816 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.817 [info] <0.101.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.817 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.817 [info] <0.102.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.819 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.820 [info] <0.105.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.821 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.821 [info] <0.108.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.822 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.822 [info] <0.109.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.823 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.824 [info] <0.112.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.824 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.824 [info] <0.114.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.825 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.825 [info] <0.116.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.826 [info] <0.97.0>@maxwell_protocol_channel_client_pool_worker:start_link:32 args = [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.826 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:init:44 init args [{hostname,"127.0.0.1"},{port,2233}]
+2015-12-31 18:09:35.846 [info] <0.7.0> Application sync started on node 'chan@127.0.0.1'
+2015-12-31 18:09:36.864 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 18:09:36.872 [info] <0.125.0> maxwell_protocol_channel_command_protocol: Reloaded! (Beam changed.)
+2015-12-31 18:10:05.821 [info] <0.98.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5507>
+2015-12-31 18:10:05.821 [info] <0.101.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5510>
+2015-12-31 18:10:05.821 [info] <0.102.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5516>
+2015-12-31 18:10:05.821 [info] <0.105.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5524>
+2015-12-31 18:10:05.822 [info] <0.103.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.103.0>,reason:normal
+2015-12-31 18:10:05.822 [info] <0.108.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5532>
+2015-12-31 18:10:05.822 [info] <0.104.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.104.0>,reason:normal
+2015-12-31 18:10:05.822 [info] <0.106.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.106.0>,reason:normal
+2015-12-31 18:10:05.822 [info] <0.107.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.107.0>,reason:normal
+2015-12-31 18:10:05.822 [info] <0.110.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.110.0>,reason:normal
+2015-12-31 18:10:05.824 [info] <0.109.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5541>
+2015-12-31 18:10:05.824 [info] <0.111.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.111.0>,reason:normal
+2015-12-31 18:10:05.825 [info] <0.112.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5543>
+2015-12-31 18:10:05.825 [info] <0.113.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.113.0>,reason:normal
+2015-12-31 18:10:05.826 [info] <0.114.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5545>
+2015-12-31 18:10:05.826 [info] <0.115.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.115.0>,reason:normal
+2015-12-31 18:10:05.827 [info] <0.118.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5549>
+2015-12-31 18:10:05.827 [info] <0.116.0>@maxwell_protocol_channel_client_pool_worker:close_conn:103 close socket #Port<0.5547>
+2015-12-31 18:10:05.827 [info] <0.117.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.117.0>,reason:normal
+2015-12-31 18:10:05.827 [info] <0.119.0>@maxwell_protocol_channel_command_protocol:terminate:104 term <0.119.0>,reason:normal

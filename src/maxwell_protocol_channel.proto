@@ -1,15 +1,16 @@
 package maxwell.protocol.channel;
 
 enum rpc_type_t {
-    CAST                         = 1;
-    CALL                         = 2;
-    REPLY                        = 3;
+    CAST = 1;
+    CALL = 2;
+    REPLY = 3;
 }
 
-message chan_heartbeat_t {}
+message chan_heartbeat_t {
+}
 
 message chan_msg_t {
     optional rpc_type_t rpc_type = 1;
-    optional uint64     msg_type = 2;
-    required bytes      payload  = 3;
+    optional uint64 msg_type = 2;
+    required bytes payload = 3;
 }

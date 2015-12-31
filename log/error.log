@@ -5246,3 +5246,5 @@
 /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
 2015-12-31 18:00:33.540 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
 /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 18:09:36.864 [error] <0.125.0> /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings

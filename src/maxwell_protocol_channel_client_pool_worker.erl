@@ -100,7 +100,7 @@ code_change(_OldVsn, State, _Extra) ->
 close_conn(#state{conn = undefined} = State) ->
   State;
 close_conn(#state{conn = Conn} = State) ->
-  lager:info("close socket ~p",[Conn]),
+  lager:info("close socket ~p", [Conn]),
   ok = gen_tcp:close(Conn),
   State#state{conn = undefined}.
 
@@ -117,10 +117,10 @@ do_call(Command, State = #state{conn = Conn}, RetryCount) ->
   ok = inet:setopts(Conn, [{active, false}]),
   case do_one_call(Command, Conn, RetryCount * ?CALL_TIMEOUT_STEP, RetryCount, State) of
     {{ok, Rep}, NewState} ->
-      case maxwell_protocol_channel_pb:decode(chan_msg_t,Rep) of
-        {chan_msg_t,'REPLY',0,Bin} ->
+      case maxwell_protocol_channel_pb:decode(chan_msg_t, Rep) of
+        {chan_msg_t, 'REPLY', 0, Bin} ->
           {{ok, Bin}, NewState};
-        {chan_msg_t,'REPLY',1,Reason} ->
+        {chan_msg_t, 'REPLY', 1, Reason} ->
           {{error, binary_to_term(Reason)}, NewState}
       end;
     {{error, _}, _NewState} = ErrorState ->

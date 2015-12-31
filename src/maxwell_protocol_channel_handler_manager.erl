@@ -5,6 +5,7 @@
 -export([
   install_handler/2,
   find_handler/1,
+  delete_handler/1,
   start_link/0
 ]).
 

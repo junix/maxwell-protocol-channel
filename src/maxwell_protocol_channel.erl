@@ -20,8 +20,8 @@ start_server(Port) ->
     [{port, Port}],
     maxwell_protocol_channel_command_protocol, []).
 
-connect(ChanName,Port) ->
-  maxwell_protocol_channel_client_pool_manager:start_pool(ChanName,Port).
+connect(ChanName, Port) ->
+  maxwell_protocol_channel_client_pool_manager:start_pool(ChanName, Port).
 
 install_command_handler(Type, Handler) when is_integer(Type) ->
   maxwell_protocol_channel_handler_manager:install_handler(Type, Handler).
