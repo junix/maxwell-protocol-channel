@@ -9870,3 +9870,6 @@ Ranch listener command_channel had connection process started with maxwell_proto
 2015-12-31 18:09:36 =ERROR REPORT====
 /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:100: Warning: variable 'Info' is unused
 /opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_command_protocol.erl:0: Recompiled with 1 warnings
+2015-12-31 20:17:18 =ERROR REPORT====
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:4: Error: function do_proc/2 undefined
+/opt/mos/codebase/maxwell-protocol-channel/src/maxwell_protocol_channel_bert.erl:31: Error: syntax error before: 'end'

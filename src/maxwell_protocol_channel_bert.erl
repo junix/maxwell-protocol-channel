@@ -26,10 +26,8 @@ call(ChanName, MFA) ->
 do_proc(call, Payload) when is_binary(Payload) ->
   {M, F, A} = erlang:binary_to_term(Payload),
   case catch erlang:apply(M, F, A) of
-    {'EXIT', _Reason} = Res ->
-      term_to_binary(Res);
-    Reply ->
-      term_to_binary(Reply)
+    Result ->
+      term_to_binary(Result)
   end;
 do_proc(cast, Payload) when is_binary(Payload) ->
   {M, F, A} = erlang:binary_to_term(Payload),
