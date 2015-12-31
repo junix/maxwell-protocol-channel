@@ -3,7 +3,7 @@
 
 -export([call/2]).
 -export([cast/2]).
--export([start_link/2]).
+-export([start_link/0]).
 -export([stop/1]).
 -export([init/1]).
 
@@ -27,7 +27,7 @@ cast(PoolName, Command) ->
       gen_server:cast(Worker, {cast, Command})
     end).
 
-start_link(_Type, _Args) ->
+start_link() ->
   ?ETS_TABLE = ets:new(?ETS_TABLE, [set, public, named_table]),
   supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 

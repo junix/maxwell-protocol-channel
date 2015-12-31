@@ -3,6 +3,10 @@
 
 %% APIs
 -export([
+  start_server/2,
+  start_client_pools/0,
+  call/2,
+  cast/2,
   pack/1,
   unpack/1,
   build_command_to_event_agent/3,
@@ -16,24 +20,17 @@
 %% API implementations
 %% =========================================================
 
-start_server().
+start_server(Port, CommandProcesser) ->
+   ranch:start_listener(command_channel, 10, ranch_tcp, [{port, Port}], CommandProcesser, []).
 
+start_client_pools() ->
+   maxwell_protocol_channel_client_pool:start().
 
+call(ChanName,Command) ->
+  maxwell_protocol_channel_client_pools:call(ChanName,Command).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+cast(ChanName,Command) ->
+  maxwell_protocol_channel_client_pools:cast(ChanName,Command).
 
 pack(Record) ->
   maxwell_protocol_channel_pb:encode(Record).
