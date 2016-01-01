@@ -2,6 +2,7 @@
 .eunit/
 .rebar/
 deps/
+log
 ebin/
 maxwell_protocol
 *.swp
